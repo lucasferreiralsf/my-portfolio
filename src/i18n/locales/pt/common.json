@@ -1,0 +1,75 @@
+{
+  "common": {
+    "fullname": "Lucas Ferreira",
+    "years-of-experience": "Anos de experiência",
+    "job-title": "Desenvolvedor fullstack"
+  },
+  "header": {
+    "about": "Sobre",
+    "services": "Serviços",
+    "portfolio": "Portfolio",
+    "contact": "Contato",
+    "lets-chat": "Vamos conversar"
+  },
+  "hero": {
+    "presentation": "Sou o Lucas,",
+    "lets-chat": "Vamos conversar",
+    "description": "Eu desenvolvo produtos que causam impacto positivo! Posso construir desde APIs, websites até aplicativos para celular...",
+    "handled-projects": "Projetos trabalhados",
+    "clients": "Clientes"
+  },
+  "about": {
+    "title": "Sobre",
+    "description": "Eu sou um desenvolvedor com mais de 6 anos de experiência, focado em construir aplicativos e sistemas pra qualquer tamanho de empresa ou pessoa física. Tenho experiência em construir o backend da sua aplicação, frontend e os aplicativos para android e iphone. "
+  },
+  "tech-stack": {
+    "title": "Como posso\nte ajudar?",
+    "description": "Trabalho com tecnoligias como: NodeJS, ReactJS, React Native, NextJS, NestJS, Flutter, Docker, AWS, bancos de dados e muito mais, não hesite em me contactar para saber o que posso fazer por você!"
+  },
+  "services": {
+    "title": "Meus serviços",
+    "description": "Construo sistemas web, landing pages, aplicativos para celular, APIs, não hesite em me contactar para saber se posso te ajudar!",
+    "array": [
+      {
+        "title": "Sites",
+        "subtitle": "I can develop your web platform, landing pages, and any other system based on web technologies.",
+        "src": "/icons/www.svg"
+      },
+      {
+        "title": "Apps iOS e Android",
+        "subtitle": "I can develop any type of mobile applications. I've worked for banking, finance, pharmaceutical, e-commerces companies.",
+        "src": "Mobile"
+      },
+      {
+        "title": "API's",
+        "subtitle": "I can build your API using NodeJS, Express JS, NestJS, databases such as MongoDB, PostgreSQL, MySQL.",
+        "src": "Code"
+      },
+      {
+        "title": "Desktop",
+        "subtitle": "I can build your desktop application using Flutter.",
+        "src": "KeyboardOpen"
+      }
+    ]
+  },
+  "cta-worked-companies": {
+    "title": "Empresas que já confiaram no meu trabalho"
+  },
+  "professional-experience": {
+    "title": "Minha experiência profissional",
+    "description": "Já trabalhei para empresas pesquenas, grandes e posso trabalhar para você!"
+  },
+  "latest-projects": {
+    "title": "Últimos projetos",
+    "description": "Dê uma olhada no meu portfolio abaixo e veja minha experiência desenvolvendo e criando produtos digitais"
+  },
+  "cta-github-linkedin": {
+    "title": "Acesse meu LinkedIn e Github:"
+  },
+  "get-in-touch": {
+    "title": "Entrar em contato",
+    "description": "Você pode entrar em contato comigo por WhatsApp, LinkedIn ou e-mail!",
+    "whatsapp": "+351 914 386 374",
+    "email": "contact@ferreiralucas.dev"
+  }
+}

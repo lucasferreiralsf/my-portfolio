@@ -1,0 +1,75 @@
+{
+  "common": {
+    "fullname": "Lucas Ferreira",
+    "years-of-experience": "Years of Experience",
+    "job-title": "Full-stack developer"
+  },
+  "header": {
+    "about": "About me",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "lets-chat": "Let's chat"
+  },
+  "hero": {
+    "presentation": "I'm Lucas,",
+    "lets-chat": "Let's chat",
+    "description": "I care a lot about developing products for positive impact! I can build APIs, Websites, Mobile Apps, and much more...",
+    "handled-projects": "Handled projects",
+    "clients": "Clients"
+  },
+  "about": {
+    "title": "About me",
+    "description": "I'm an experienced software developer focused on build apps for any size company. I have experience to develop your backend API, your frontend and your mobile app. I have 6+ years of experience. "
+  },
+  "tech-stack": {
+    "title": "What could\nI help you?",
+    "description": "I work with technologies such as NodeJS, ReactJS, React Native, NextJS, NestJS, Flutter, Docker, AWS, Databases and much more. Please don't hesitate to contact me to find out what I can do for you!"
+  },
+  "services": {
+    "title": "My services",
+    "description": "I care a lot about developing products for positive impact! I can build APIs, Websites, Mobile Apps, and much more...",
+    "array": [
+      {
+        "title": "Web development",
+        "subtitle": "I can develop your web platform, landing pages, and any other system based on web technologies.",
+        "src": "/icons/www.svg"
+      },
+      {
+        "title": "Mobile app",
+        "subtitle": "I can develop any type of mobile applications. I've worked for banking, finance, pharmaceutical, e-commerces companies.",
+        "src": "/icons/www.svg"
+      },
+      {
+        "title": "API",
+        "subtitle": "I can build your API using NodeJS, Express JS, NestJS, databases such as MongoDB, PostgreSQL, MySQL.",
+        "src": "/icons/www.svg"
+      },
+      {
+        "title": "Desktop",
+        "subtitle": "I can build your desktop application using Flutter.",
+        "src": "/icons/www.svg"
+      }
+    ]
+  },
+  "cta-worked-companies": {
+    "title": "Companies who already trusted my work"
+  },
+  "professional-experience": {
+    "title": "My professional experience",
+    "description": "I've worked for small and big companies around the world, and I can work for you as well."
+  },
+  "latest-projects": {
+    "title": "Latest projects",
+    "description": "Please take a look on my portfolio below to see my experience developing and creating digital products"
+  },
+  "cta-github-linkedin": {
+    "title": "Take a look on my LinkedIn and Github:"
+  },
+  "get-in-touch": {
+    "title": "Get in touch",
+    "description": "You can contact me by Whatsapp, e-mail or LinkedIn!",
+    "whatsapp": "+351 914 386 374",
+    "email": "contact@ferreiralucas.dev"
+  }
+}
