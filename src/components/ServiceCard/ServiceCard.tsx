@@ -1,19 +1,22 @@
 import classNames from 'classnames'
+import Image from 'next/image'
 import React from 'react'
 
 interface Props {
   title: string
-  subtitle?: string
+  description?: string
   content?: React.ReactNode | any
   className?: string
 }
-export const ServiceCard: React.FC<Props> = ({ title, subtitle, content, className }) => {
+export const ServiceCard: React.FC<Props> = ({ title, description, content, className }) => {
   return (
     <div className={classNames('flex flex-col', className)}>
-      <div className="w-10 text-secondary mask mask-squircle flex align-center justify-center">{content}</div>
+      <div className="w-10 text-secondary mask mask-squircle flex align-center justify-center">
+        <Image width={68} height={68} className="w-auto h-auto" src={content} alt={`${title} icon`} />
+      </div>
       <div className="flex flex-col mt-4 w-60">
         <h6 className="text-2xl text-white">{title}</h6>
-        {subtitle && <p className="font-normal mt-5">{subtitle}</p>}
+        {description && <p className="font-normal mt-5">{description}</p>}
       </div>
     </div>
   )

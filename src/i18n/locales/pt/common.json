@@ -2,7 +2,9 @@
   "common": {
     "fullname": "Lucas Ferreira",
     "years-of-experience": "Anos de experiência",
-    "job-title": "Desenvolvedor fullstack"
+    "job-title": "Desenvolvedor fullstack",
+    "read-more": "Ver mais",
+    "read-less": "Ver menos"
   },
   "header": {
     "about": "Sobre",
@@ -28,29 +30,7 @@
   },
   "services": {
     "title": "Meus serviços",
-    "description": "Construo sistemas web, landing pages, aplicativos para celular, APIs, não hesite em me contactar para saber se posso te ajudar!",
-    "array": [
-      {
-        "title": "Sites",
-        "subtitle": "I can develop your web platform, landing pages, and any other system based on web technologies.",
-        "src": "/icons/www.svg"
-      },
-      {
-        "title": "Apps iOS e Android",
-        "subtitle": "I can develop any type of mobile applications. I've worked for banking, finance, pharmaceutical, e-commerces companies.",
-        "src": "Mobile"
-      },
-      {
-        "title": "API's",
-        "subtitle": "I can build your API using NodeJS, Express JS, NestJS, databases such as MongoDB, PostgreSQL, MySQL.",
-        "src": "Code"
-      },
-      {
-        "title": "Desktop",
-        "subtitle": "I can build your desktop application using Flutter.",
-        "src": "KeyboardOpen"
-      }
-    ]
+    "description": "Construo sistemas web, landing pages, aplicativos para celular, APIs, não hesite em me contactar para saber se posso te ajudar!"
   },
   "cta-worked-companies": {
     "title": "Empresas que já confiaram no meu trabalho"

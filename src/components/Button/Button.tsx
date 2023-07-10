@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
 
-type ButtonVariant = 'default' | 'outline'
+type ButtonVariant = 'default' | 'outline' | 'ghost'
 type ButtonColor = 'neutral' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error'
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -24,7 +24,8 @@ export const Button: React.FC<Props> = ({
 }) => {
   const defaultClass = classNames('btn normal-case', { ['w-fit']: !fullwidth, ['w-full']: fullwidth })
   const variantClasses = classNames({
-    [`btn-outline`]: variant === 'outline'
+    [`btn-outline`]: variant === 'outline',
+    [`btn-ghost`]: variant === 'ghost'
   })
   const colorClasses = classNames({
     [`btn-neutral hover:btn-primary`]: color === 'neutral',

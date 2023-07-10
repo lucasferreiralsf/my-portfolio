@@ -4,6 +4,7 @@ import { SiGithub, SiLinkedin } from '@icons-pack/react-simple-icons'
 import {
   AnimatedMouse,
   Button,
+  Loading,
   ProjectCard,
   ServiceCard,
   StackCard,
@@ -13,21 +14,18 @@ import {
   Title,
   YearsOfXpCard
 } from '@my-portfolio/components'
-import { useTranslationClient } from '@my-portfolio/hooks'
+import { useProfessionalExperiences, useServices, useTranslationClient } from '@my-portfolio/hooks'
+import { languages } from '@my-portfolio/i18n'
 import { TechStackProps } from '@my-portfolio/types'
-import * as Iconsax from 'iconsax-react'
 import { MessageFavorite } from 'iconsax-react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { ContactCard } from './components/ContactCard'
-import { languages } from '@my-portfolio/i18n'
 const LogoCarousel = dynamic(() => import('@my-portfolio/components/LogoCarousel/LogoCarousel'), {
   ssr: false,
   // TODO: update this to show a loading user friendly
   loading: () => <div>Loading...</div>
 })
-
-type Service = { title: string; subtitle: string; src: string }
 
 export async function generateStaticParams() {
   return languages.map((locale) => ({ locale }))
@@ -36,6 +34,9 @@ export async function generateStaticParams() {
 export default function Home({ params }: { params: { locale: string } }) {
   const { locale } = params
   const { t } = useTranslationClient(locale)
+
+  const { data: professionalExperiences, isLoading: isProfessionalExperiencesLoading } = useProfessionalExperiences()
+  const { data: services, isLoading: isServicesLoading } = useServices()
 
   const techStacks: TechStackProps[] = [
     {
@@ -75,23 +76,6 @@ export default function Home({ params }: { params: { locale: string } }) {
       icon: <Image width={82.8} height={82.8} className="w-auto h-auto" src="/icons/docker.svg" alt="Docker icon" />
     }
   ]
-
-  const myServices = (t('services.array', { returnObjects: true }) as Service[]).map(({ title, subtitle, src }) => {
-    let icon
-
-    if (src.startsWith('/icons')) {
-      icon = <Image width={82.8} height={82.8} className="w-auto h-auto" src={src} alt={`${title} icon`} />
-    } else {
-      const Icon = (Iconsax as any)[src]
-      icon = <Icon size="100%" variant="Outline" />
-    }
-
-    return {
-      title,
-      subtitle,
-      icon
-    }
-  })
 
   return (
     <main className="flex flex-col items-center justify-between">
@@ -139,11 +123,14 @@ export default function Home({ params }: { params: { locale: string } }) {
 
       <section id="services" className="w-full px-16 py-24 flex flex-col items-center justify-around bg-base-50 gap-28">
         <Title title={t('services.title')} subtitle={t('services.description')} variant="center" />
-        <div className="flex flex-wrap gap-16">
-          {myServices.map(({ title, subtitle, icon }, index) => (
-            <ServiceCard key={index} title={title} subtitle={subtitle} content={icon} />
-          ))}
-        </div>
+        {isServicesLoading && <Loading />}
+        {!isServicesLoading && (
+          <div className="flex flex-wrap gap-16">
+            {services.map(({ title, description, icon }, index) => (
+              <ServiceCard key={index} title={title} description={description} content={icon.url} />
+            ))}
+          </div>
+        )}
       </section>
 
       <section className="w-full px-16 py-12 flex items-center bg-secondary gap-28">
@@ -163,33 +150,21 @@ export default function Home({ params }: { params: { locale: string } }) {
           subtitle={t('professional-experience.description')}
           variant="center"
         />
-
-        <Timeline>
-          <TimelineElement
-            company="Mindera"
-            title="Software developer"
-            description="Working on Farfetch e-commerce as a Frontend developer. We use ReactJS, Redux, Jest, Cypress, Zeplin, Storybook, Jira, Gitlab..."
-            startedAt="2019"
-          />
-          <TimelineElement
-            company="Mindera"
-            title="Software developer"
-            description="Working on Farfetch e-commerce as a Frontend developer. We use ReactJS, Redux, Jest, Cypress, Zeplin, Storybook, Jira, Gitlab..."
-            startedAt="2019"
-          />
-          <TimelineElement
-            company="Mindera"
-            title="Software developer"
-            // description="Working on Farfetch e-commerce as a Frontend developer. We use ReactJS, Redux, Jest, Cypress, Zeplin, Storybook, Jira, Gitlab..."
-            startedAt="2019"
-          />
-          <TimelineElement
-            company="Mindera"
-            title="Software developer"
-            description="Working on Farfetch e-commerce as a Frontend developer. We use ReactJS, Redux, Jest, Cypress, Zeplin, Storybook, Jira, Gitlab..."
-            startedAt="2019"
-          />
-        </Timeline>
+        {isProfessionalExperiencesLoading && <Loading />}
+        {!isProfessionalExperiencesLoading && (
+          <Timeline>
+            {professionalExperiences.map(({ id, title, company, startedAt, finishedAt, description }) => (
+              <TimelineElement
+                key={id}
+                company={company}
+                title={title}
+                startedAt={startedAt}
+                finishedAt={finishedAt}
+                description={description}
+              />
+            ))}
+          </Timeline>
+        )}
       </section>
 
       <section

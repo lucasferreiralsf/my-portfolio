@@ -2,7 +2,9 @@
   "common": {
     "fullname": "Lucas Ferreira",
     "years-of-experience": "Years of Experience",
-    "job-title": "Full-stack developer"
+    "job-title": "Full-stack developer",
+    "read-more": "Read more",
+    "read-less": "Read less"
   },
   "header": {
     "about": "About me",
@@ -28,29 +30,7 @@
   },
   "services": {
     "title": "My services",
-    "description": "I care a lot about developing products for positive impact! I can build APIs, Websites, Mobile Apps, and much more...",
-    "array": [
-      {
-        "title": "Web development",
-        "subtitle": "I can develop your web platform, landing pages, and any other system based on web technologies.",
-        "src": "/icons/www.svg"
-      },
-      {
-        "title": "Mobile app",
-        "subtitle": "I can develop any type of mobile applications. I've worked for banking, finance, pharmaceutical, e-commerces companies.",
-        "src": "/icons/www.svg"
-      },
-      {
-        "title": "API",
-        "subtitle": "I can build your API using NodeJS, Express JS, NestJS, databases such as MongoDB, PostgreSQL, MySQL.",
-        "src": "/icons/www.svg"
-      },
-      {
-        "title": "Desktop",
-        "subtitle": "I can build your desktop application using Flutter.",
-        "src": "/icons/www.svg"
-      }
-    ]
+    "description": "I care a lot about developing products for positive impact! I can build APIs, Websites, Mobile Apps, and much more..."
   },
   "cta-worked-companies": {
     "title": "Companies who already trusted my work"

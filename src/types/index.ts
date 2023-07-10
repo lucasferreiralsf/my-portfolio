@@ -1,2 +1,5 @@
-export type { TechStackProps } from './teck-stacks.types'
-export type { MyServiceProps } from './my-services.types'
+export type * from './teck-stacks.types'
+export type * from './my-services.types'
+export type * from './professional-experience.types'
+export type * from './gql.types'
+export type * from './service.types'
