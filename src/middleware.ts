@@ -12,11 +12,6 @@ export const config = {
 }
 
 export function middleware(req: NextRequest) {
-  // let lng
-  // if (req.cookies.has(i18nextCookieName)) lng = acceptLanguage.get(req?.cookies?.get(i18nextCookieName)?.value)
-  // if (!lng) lng = acceptLanguage.get(req.headers.get('Accept-Language'))
-  // if (!lng) lng = fallbackLng
-
   const lng = getCurrentLanguage(req)
 
   if (

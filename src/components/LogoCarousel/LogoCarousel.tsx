@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
 
 import 'swiper/swiper.css'
+import { useBreakpoint } from '@my-portfolio/hooks'
 
 interface Props {
   logos?: string[] | { url: string; title?: string }[]
@@ -21,10 +22,10 @@ const LogoCarousel: React.FC<Props> = ({
     '/icons/react.svg'
   ]
 }) => {
+  const { isBelowSm } = useBreakpoint('sm')
   return (
     <Swiper
-      slidesPerView={3}
-      // spaceBetween={100}
+      slidesPerView={isBelowSm ? 2 : 3}
       autoplay={{
         delay: 1500,
         disableOnInteraction: false
@@ -35,12 +36,16 @@ const LogoCarousel: React.FC<Props> = ({
     >
       {logos &&
         logos.map((src, index) => (
-          <SwiperSlide key={index}>
-            <div className="flex flex-col items-center">
+          <SwiperSlide key={index} className="!flex items-center justify-center">
+            <div className="flex flex-col items-center justify-center w-40 h-40 brightness-0 saturate-0 hover:saturate-100 hover:brightness-75">
               <Image
-                width={82.8}
-                height={82.8}
-                className="w-auto h-auto block"
+                width={600}
+                height={600}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain'
+                }}
                 src={typeof src === 'string' ? src : src.url}
                 alt="World wide web icon"
               />

@@ -27,9 +27,9 @@ export const ContactCard: React.FC<Props> = ({
   }
 
   return (
-    <a className="flex flex-col gap-3 cursor-pointer" href={href[variant]} target={target}>
-      <p className="max-w-2xl text-2xl font-light">{title[variant]}</p>
-      <h1 className="text-4xl text-white font-medium">{value}</h1>
+    <a className="flex flex-col gap-3 cursor-pointe max-md:gap-1" href={href[variant]} target={target}>
+      <p className="max-w-2xl text-2xl font-light max-lg:text-base">{title[variant]}</p>
+      <h1 className="text-4xl text-white font-medium max-lg:text-lg">{value}</h1>
     </a>
   )
 }

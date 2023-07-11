@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 import React, { useEffect, useRef, useState } from 'react'
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import { Button } from '../Button/Button'
-import { useTranslationClient } from '@my-portfolio/hooks'
+import { useBreakpoint, useTranslationClient } from '@my-portfolio/hooks'
 
 type TimelineElementProps = {
   title: string
@@ -28,12 +28,15 @@ const TimelineElement: React.FC<TimelineElementProps> = ({
   const [showReadMoreBtn] = useState(description && description?.length > 178)
   const titlesWrapperRef = useRef<HTMLDivElement>(null)
   const { t } = useTranslationClient()
+  const { isBelowSm } = useBreakpoint('sm')
+  const { isBelowMd } = useBreakpoint('md')
 
-  const dateCardWidth = 180
-  const dateCardHeight = 180
-  const defaultTitlesDatePadding = 50
+  const dateCardWidth = isBelowSm ? 80 : isBelowMd ? 130 : 180
+  const dateCardHeight = dateCardWidth
+  const defaultTitlesDatePadding = isBelowSm ? 20 : isBelowMd ? 30 : 50
   const defaultLineHeight = 96
 
+  const isTitleLengthBig = title.length > 28
   const parsedStartedAt = dayjs(startedAt).locale('pt-BR').format('MMM YYYY')
   const parsedFinishedAt = finishedAt ? dayjs(finishedAt).format('MMM YYYY') : 'current'
 
@@ -61,13 +64,14 @@ const TimelineElement: React.FC<TimelineElementProps> = ({
     if (description) {
       return (
         <div
-          className={classNames('flex flex-col gap-4', {
+          className={classNames('flex flex-col gap-4 mt-4 xl:mt-7', {
             'items-end': left
           })}
         >
           <article
-            className={classNames('max-w-[25rem] mt-7 prose font-extralight', {
-              'text-right mr-4': left,
+            className={classNames('max-w-[25rem] prose font-extralight max-sm:prose-sm', {
+              'text-right': left,
+              'prose-ul:ml-[-2rem]': !left,
               'max-h-40 overflow-y-clip': showReadMoreBtn && !showMore
             })}
             dir={left ? 'rtl' : 'ltr'}
@@ -90,7 +94,7 @@ const TimelineElement: React.FC<TimelineElementProps> = ({
     <div className="flex flex-col items-center">
       <div className="w-[0.125rem] bg-primary" style={{ height: defaultLineHeight }} />
       <div
-        className="rounded-lg bg-base-30 flex items-center justify-center p-2"
+        className="rounded-lg bg-base-30 flex items-center justify-center p-2 max-md:text-xs max-md:p-1 max-md:text-center"
         style={{
           width: dateCardWidth,
           height: dateCardHeight
@@ -99,7 +103,7 @@ const TimelineElement: React.FC<TimelineElementProps> = ({
         {parsedStartedAt} - {parsedFinishedAt}
       </div>
       <div
-        className={classNames('flex flex-col absolute pb-4 mt-24', {
+        className={classNames('flex flex-col absolute pb-4 mt-24 ', {
           'self-start': !left,
           'self-end': left,
           'items-end': left
@@ -111,15 +115,19 @@ const TimelineElement: React.FC<TimelineElementProps> = ({
         ref={titlesWrapperRef}
       >
         <h2
-          className={classNames('text-3xl text-white mb-1 font-extralight', {
-            'text-right': left
+          className={classNames('text-white mb-1 font-extralight', {
+            'text-right': left,
+            'text-2xl max-sm:text-base': !isTitleLengthBig,
+            'text-xl max-sm:text-sm': isTitleLengthBig
           })}
         >
           {company}
         </h2>
         <h1
-          className={classNames('text-4xl text-secondary font-medium', {
-            'text-right': left
+          className={classNames('text-secondary font-medium', {
+            'text-right': left,
+            'text-3xl max-sm:text-lg': !isTitleLengthBig,
+            'text-2xl max-sm:text-base': isTitleLengthBig
           })}
         >
           {title}

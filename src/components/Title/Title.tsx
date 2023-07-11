@@ -22,16 +22,17 @@ export const Title: React.FC<Props> = ({
 }) => {
   const wrapperClasses = {
     'max-w-3xl flex flex-col': variant !== 'custom',
-    'gap-11': variant !== ('center' || 'custom'),
+    'gap-11 max-md:gap-4': variant !== ('center' || 'custom'),
     'gap-7 items-center': variant === 'center'
   }
   const titleClasses = {
-    'text-5xl text-white font-medium whitespace-pre-line': variant !== 'custom',
+    'text-5xl text-white font-medium whitespace-pre-line max-md:text-2xl max-lg:text-3xl max-sm:text-center':
+      variant !== 'custom',
     'leading-tight': variant === 'left',
     'leading-tight text-center': variant === 'center'
   }
   const subtitleClasses = {
-    'max-w-lg whitespace-pre-line': variant !== 'custom',
+    'max-w-lg whitespace-pre-line max-lg:text-sm max-sm:text-center': variant !== 'custom',
     'text-xl text-white': variant === 'default',
     'text-base': variant === 'left',
     'text-base text-center': variant === 'center'

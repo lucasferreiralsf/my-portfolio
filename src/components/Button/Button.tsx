@@ -22,7 +22,10 @@ export const Button: React.FC<Props> = ({
   fullwidth = false,
   ...remainingProps
 }) => {
-  const defaultClass = classNames('btn normal-case', { ['w-fit']: !fullwidth, ['w-full']: fullwidth })
+  const defaultClass = classNames('btn normal-case flex-nowrap whitespace-nowrap', {
+    ['w-fit']: !fullwidth,
+    ['w-full']: fullwidth
+  })
   const variantClasses = classNames({
     [`btn-outline`]: variant === 'outline',
     [`btn-ghost`]: variant === 'ghost'

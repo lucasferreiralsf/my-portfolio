@@ -5,15 +5,16 @@ import { EmptyState } from '../EmptyState/EmptyState'
 
 type Props = {
   title: string
+  description?: string
   src?: string
   isNew?: boolean
   skills?: string[]
   className?: string
 }
-export const ProjectCard: React.FC<Props> = ({ title, src, skills, isNew = false, className }) => {
+export const ProjectCard: React.FC<Props> = ({ title, description, src, skills, isNew = false, className }) => {
   return (
-    <div className={classNames('card w-96 bg-slate-200 shadow-xl', className)}>
-      <figure className="w-full h-72 self-center">
+    <div className={classNames('card w-96 bg-slate-200 shadow-xl max-lg:w-64', className)}>
+      <figure className="w-full h-72 self-center max-lg:h-36">
         {src && (
           <Image
             src={src}
@@ -22,7 +23,7 @@ export const ProjectCard: React.FC<Props> = ({ title, src, skills, isNew = false
             style={{
               width: '100%',
               height: '100%',
-              objectFit: 'contain'
+              objectFit: 'cover'
             }}
             alt={`Image of ${title} project`}
           />
@@ -34,7 +35,7 @@ export const ProjectCard: React.FC<Props> = ({ title, src, skills, isNew = false
           {title}
           {isNew && <div className="badge badge-accent text-white">NEW</div>}
         </h2>
-        <p className="text-slate-500">If a dog chews shoes whose shoes does he choose?</p>
+        {description && <p className="text-slate-500">{description}</p>}
         <div className="card-actions justify-end text-slate-600">
           {skills?.length &&
             skills.map((skill) => (

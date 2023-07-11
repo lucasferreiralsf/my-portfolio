@@ -27,6 +27,7 @@
     "react-dom": "18.2.0",
     "react-i18next": "^13.0.1",
     "react-markdown": "^8.0.7",
+    "react-responsive": "^9.0.2",
     "swiper": "^9.4.1",
     "swr": "^2.2.0"
   },

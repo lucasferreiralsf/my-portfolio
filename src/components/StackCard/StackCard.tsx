@@ -17,11 +17,13 @@ export const StackCard: React.FC<Props> = ({
   ...remainingProps
 }) => {
   return (
-    <a className={classNames('flex cursor-pointer', className)} target={target} href={href} {...remainingProps}>
-      <div className="w-28 h-28 p-4 bg-slate-200 mask mask-squircle flex align-center justify-center">{content}</div>
-      <div className="flex flex-col ml-5 mt-3 w-[11.5rem]">
-        <h6 className="text-2xl text-white">{title}</h6>
-        {subtitle && <p className="font-normal mt-1">{subtitle}</p>}
+    <a className={classNames('flex cursor-pointer gap-2', className)} target={target} href={href} {...remainingProps}>
+      <div className="w-24 h-w-24 p-4 bg-slate-200 mask mask-squircle flex align-center justify-center max-md:w-12 max-md:h-12 max-lg:p-2 max-lg:w-20 max-lg:h-20">
+        {content}
+      </div>
+      <div className="flex flex-col mt-1 w-[11.5rem] max-md:w-20 max-lg:w-24 lg:w-28">
+        <h6 className="text-2xl text-white inline-block w-fit max-md:text-base max-lg:text-lg">{title}</h6>
+        {subtitle && <p className="font-normal mt-1 text-base max-md:text-xs">{subtitle}</p>}
       </div>
     </a>
   )
