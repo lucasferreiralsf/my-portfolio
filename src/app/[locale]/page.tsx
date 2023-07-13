@@ -102,7 +102,7 @@ export default function Home({ params }: { params: { locale: string } }) {
   const renderHeroImage = (className?: string) => (
     <div className={classNames('relative max-sm:w-[18rem]', className)}>
       <Image
-        src="/images/hero-avatar.png"
+        src="/images/hero-avatar.webp"
         alt="My hero avatar, just a photo of myself"
         width={488}
         height={424}
@@ -114,8 +114,8 @@ export default function Home({ params }: { params: { locale: string } }) {
 
   return (
     <main className="flex flex-col items-center justify-between w-full">
-      <section className="flex flex-col items-center gap-11 px-8 py-16 w-full sm:p-16 lg:h-[calc(100vh-8rem)]">
-        <div className="flex flex-col lg:justify-between sm:flex-row sm:w-full max-sm:gap-11">
+      <section className="flex flex-col items-center justify-center gap-11 px-8 py-16 w-full sm:p-16 lg:h-[calc(100vh-8rem)]">
+        <div className="flex flex-col lg:-mt-32 lg:justify-between sm:flex-row sm:w-full max-sm:gap-11">
           <div className="flex flex-col gap-11 max-sm:items-center">
             <h1 className="text-2xl text-white font-medium leading-tight max-sm:text-center md:text-3xl lg:text-5xl max-sm:order-1">
               {t('hero.presentation')}

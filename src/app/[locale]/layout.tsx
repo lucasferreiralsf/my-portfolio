@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { dir } from 'i18next'
 import { languages } from '@my-portfolio/i18n'
+import { Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,9 +14,23 @@ interface RootLayoutProps {
   params: { locale: string }
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Lucas Ferreira | Portfolio',
-  description: "This is the Lucas' Portfolio website"
+  description: 'This is my Portfolio website',
+  openGraph: {
+    title: 'Lucas Ferreira | Portfolio',
+    description: 'This is my Portfolio website',
+    url: 'https://ferreiralucas.dev',
+    siteName: 'Lucas Ferreira Portfolio',
+    images: [
+      {
+        url: '/images/preview.webp',
+        width: 1800,
+        height: 1800
+      }
+    ],
+    type: 'website'
+  }
 }
 
 export async function generateStaticParams() {
